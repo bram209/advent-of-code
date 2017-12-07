@@ -16,7 +16,7 @@ defmodule AdventOfCode.Day2 do
     row
     |> permutations
     |> Enum.map(fn {a,b} -> {max(a, b), min(a,b)} end)
-    |> Enum.filter(fn {a, b} -> rem(a, b) == 0 end)
+    |> Enum.filter(fn {a, b} -> a != b and rem(a, b) == 0 end)
     |> Enum.map(fn {a, b} -> Integer.floor_div(a, b) end)
     |> Enum.sum
   end
