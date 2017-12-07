@@ -1,17 +1,22 @@
 defmodule AdventOfCode.Day1 do
-  def solve(string) do
+  def solve1(string) do
     string
     |> digits
     |> sum
   end
 
-  def sum(digits) do
+  def solve2(string) do
+    digits = string |> digits
+    sum(digits, Integer.floor_div(length(digits), 2))
+  end
+
+  def sum(digits, step \\ 1) do
     digits
-    |> Stream.cycle
-    |> Stream.drop(1)
+    |> Stream.cycle()
+    |> Stream.drop(step)
     |> Stream.zip(digits)
-    |> Enum.filter(fn {x, y} -> x == y end)
-    |> Enum.map(fn {x, _} -> x end)
+    |> Stream.filter(fn {x, y} -> x == y end)
+    |> Stream.map(fn {x, _} -> x end)
     |> Enum.sum()
   end
 

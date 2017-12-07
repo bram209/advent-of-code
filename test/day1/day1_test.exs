@@ -24,11 +24,11 @@ defmodule AdventOfCode.Day1Test do
   end
 
   test "all four digits match the digit 2 items ahead" do
-    assert AdventOfCode.Day1.solve2("1212") == 4
+    assert AdventOfCode.Day1.solve2("1212") == 6
   end
 
   test "every comparison is between a 1 and a 2" do
-    assert AdventOfCode.Day1.solve2("1221") == 2
+    assert AdventOfCode.Day1.solve2("1221") == 0
   end
 
   test "both 2s match each other, but no other digit has a match" do
@@ -40,6 +40,6 @@ defmodule AdventOfCode.Day1Test do
   end
 
   test "12131415 produces 4" do
-    assert AdventOfCode.Day1.solve2("12131415") == 12
+    assert AdventOfCode.Day1.solve2("12131415") == 4
   end
 end
