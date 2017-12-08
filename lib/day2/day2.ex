@@ -5,7 +5,7 @@ defmodule AdventOfCode.Day2 do
   def solve(input, compute_checksum) do
     input
     |> Stream.map(&compute_checksum.(&1))
-    |> Enum.sum
+    |> Enum.sum()
   end
 
   def checksum1(row) do
@@ -15,10 +15,10 @@ defmodule AdventOfCode.Day2 do
   def checksum2(row) do
     row
     |> permutations
-    |> Enum.map(fn {a,b} -> {max(a, b), min(a,b)} end)
+    |> Enum.map(fn {a, b} -> {max(a, b), min(a, b)} end)
     |> Enum.filter(fn {a, b} -> a != b and rem(a, b) == 0 end)
     |> Enum.map(fn {a, b} -> Integer.floor_div(a, b) end)
-    |> Enum.sum
+    |> Enum.sum()
   end
 
   def permutations(input) do
